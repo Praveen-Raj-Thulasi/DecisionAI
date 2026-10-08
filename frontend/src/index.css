@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #0b0f17;
+    --bg-surface-1: #111827;
+    --bg-surface-2: #1e293b;
+    --bg-surface-3: #334155;
+    --accent-cyan: #00e5ff;
+    --accent-blue: #38bdf8;
+    --emerald-ready: #10b981;
+    --amber-caution: #f59e0b;
+    --crimson-risk: #ef4444;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #0b0f17 !important;
+    color: #dfe2ee !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.glass-card {
+  background-color: rgba(17, 24, 39, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+.glass-card-elevated {
+  background-color: rgba(30, 41, 59, 0.85) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+  border-radius: 12px !important;
+}
+
+input, textarea, select {
+  background-color: #0b0f17 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #00e5ff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px #00e5ff !important;
+}
+
+button {
+  cursor: pointer;
+}

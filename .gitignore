@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+
+# Python cache & build outputs
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Environment & local settings
+.env
+.env.local
+*.log
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary Stitch downloads
+stitch_*.html
