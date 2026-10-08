@@ -6,14 +6,14 @@
 
 # Team
 
-**Team Name:** [Team Name]
+**Team Name:** [Wakie Wakie]
 
 | Member | Contribution |
 |---|---|
-| [Member 1] | Full-stack development, AI integration and system architecture |
-| [Member 2] | Frontend development, UI/UX and dashboard implementation |
-| [Member 3] | Backend development, decision engine and API integration |
-| [Member 4] | AI prompting, testing, documentation and presentation |
+| Naveensri V | Full-stack development, AI integration and system architecture |
+| Prithivi Raj T J | Frontend development, UI/UX and dashboard implementation |
+| Praveen Raj Thulasi S | Backend development, decision engine and API integration |
+| Gopika B | AI prompting, testing, documentation and presentation |
 
 ---
 
