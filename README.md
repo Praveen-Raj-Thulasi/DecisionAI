@@ -1,683 +1,960 @@
-# 🛡️ DecisionShield
+# DecisionShield
 
-### *Know if you're ready to decide.*
-
-> An open-source, AI-powered **Decision Readiness & Risk Auditing Platform** powered by **Google Gemma 4** and a **Deterministic Scoring Engine**.
+**AI-powered Decision Assurance Platform that analyzes evidence, exposes assumptions and risks, identifies missing information, and stress-tests important decisions before users commit.**
 
 ---
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-To_be_added-lightgrey.svg)
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?logo=fastapi)
-![React](https://img.shields.io/badge/React-18.2%2B-61DAFB?logo=react)
-![Gemma 4](https://img.shields.io/badge/LLM-Google_Gemma_4-4285F4?logo=google)
-![Ollama](https://img.shields.io/badge/Ollama-Local_Inference-black?logo=ollama)
+# Team
+
+**Team Name:** [Team Name]
+
+| Member | Contribution |
+|---|---|
+| [Member 1] | Full-stack development, AI integration and system architecture |
+| [Member 2] | Frontend development, UI/UX and dashboard implementation |
+| [Member 3] | Backend development, decision engine and API integration |
+| [Member 4] | AI prompting, testing, documentation and presentation |
 
 ---
 
-## 📋 Table of Contents
+# Problem Statement
 
-- [1. Project Overview](#1-project-overview)
-- [2. Problem Statement](#2-problem-statement)
-- [3. Core Solution](#3-core-solution)
-- [4. Key Features](#4-key-features)
-- [5. Why This Is Not Just a Chatbot](#5-why-this-is-not-just-a-chatbot)
-- [6. Gemma 4 Integration](#6-gemma-4-integration)
-- [7. System Architecture](#7-system-architecture)
-- [8. Data Flow](#8-data-flow)
-- [9. Component Architecture](#9-component-architecture)
-- [10. API Architecture](#10-api-architecture)
-- [11. Decision Readiness Engine](#11-decision-readiness-engine)
-- [12. Security & Reliability](#12-security--reliability)
-- [13. Demo Scenario](#13-demo-scenario)
-- [14. Project Differentiation](#14-project-differentiation)
-- [15. Open Source & Licensing](#15-open-source--licensing)
-- [16. Setup Instructions](#16-setup-instructions)
-- [17. Environment Variables](#17-environment-variables)
-- [18. Project Structure](#18-project-structure)
-- [19. Future Roadmap](#19-future-roadmap)
-- [20. Limitations](#20-limitations)
-- [21. Hackathon & Innovation Value](#21-hackathon--innovation-value)
-- [22. Screenshots](#22-screenshots)
+## The Problem
+
+People increasingly use AI systems to make important decisions, from choosing technologies and vendors to planning products, selecting strategies and evaluating business options.
+
+However, most AI assistants are optimized to **provide an answer or recommendation**, even when the information provided by the user is incomplete, uncertain or based on hidden assumptions.
+
+For example, a user may ask:
+
+> "Should our startup migrate from PostgreSQL to MongoDB?"
+
+An AI assistant can provide a convincing recommendation, but the user may not have provided critical information such as:
+
+- workload characteristics
+- transaction requirements
+- migration constraints
+- budget limitations
+- operational requirements
+- compliance requirements
+
+The result can be a confident decision based on incomplete evidence.
+
+The core problem is therefore not simply:
+
+> "Which option should I choose?"
+
+It is:
+
+> **"Do I have enough reliable evidence to make this decision?"**
+
+DecisionShield addresses this gap by evaluating the **readiness, evidence quality, assumptions, risks and stability of a decision before commitment.**
 
 ---
 
-## 1. Project Overview
+## Why We Chose This Problem
 
-> **Core Philosophy:** *"Don't ask AI what to choose. Ask AI if you're ready to choose."*
+AI systems are becoming increasingly capable of answering complex questions, but users can easily mistake a fluent answer for a well-supported decision.
 
-**DecisionShield** is **NOT** another conversational chatbot that simply picks Option A over Option B. 
+We wanted to explore a different approach to AI-assisted decision making.
 
-Instead, DecisionShield is an open-source, AI-powered decision auditing platform designed to evaluate whether a high-stakes decision is **sufficiently supported by evidence** before an organization or individual commits resources to it.
+Instead of building another chatbot that tells users what to do, we wanted to build a system that encourages users to **think critically about the evidence behind their decisions**.
 
+This is particularly important for high-impact decisions where incorrect assumptions can result in:
+
+- financial losses
+- wasted development effort
+- poor technology choices
+- operational problems
+- failed product decisions
+- unnecessary migration costs
+
+DecisionShield therefore focuses on **decision quality rather than simply recommendation quality.**
+
+---
+
+# Solution
+
+DecisionShield is an AI-powered **Decision Assurance Platform**.
+
+Users provide a decision, available options, requirements, constraints and existing evidence.
+
+The system then transforms the unstructured decision context into a structured decision model.
+
+Gemma 4 analyzes the context to identify:
+
+- Facts
+- Assumptions
+- Claims
+- Unknowns
+- Risks
+- Missing evidence
+- Potential failure conditions
+
+A deterministic decision engine then evaluates the resulting analysis and calculates a **Decision Readiness Score**.
+
+The decision can also be subjected to **stress tests**, where the system evaluates how stable it remains when important conditions change.
+
+Finally, DecisionShield generates a **Decision Audit Report** containing:
+
+- Decision Readiness
+- Evidence Quality
+- Requirement Coverage
+- Risk Coverage
+- Critical Assumptions
+- Missing Evidence
+- Stress-Test Results
+- Decision Stability
+- Recommended Verification Actions
+
+The system does not attempt to replace the human decision maker.
+
+Instead, it answers:
+
+> **"Are you ready to make this decision?"**
+
+---
+
+# Key Features
+
+### 1. Decision Workspace
+
+Users can define:
+
+- Decision
+- Options
+- Context
+- Requirements
+- Constraints
+- Existing Evidence
+- Decision Importance
+
+---
+
+### 2. Evidence Analysis
+
+DecisionShield categorizes information into:
+
+- Facts
+- Assumptions
+- Claims
+- Unknowns
+- Risks
+
+This allows users to distinguish what they actually know from what they are assuming.
+
+---
+
+### 3. Decision Readiness Score
+
+The platform calculates a deterministic readiness score based on factors such as:
+
+- Evidence Quality
+- Requirement Coverage
+- Risk Coverage
+- Unknown Information
+- Assumption Load
+- Decision Stability
+
+The score provides an overall indication of whether the decision is sufficiently supported.
+
+---
+
+### 4. Missing Evidence Detection
+
+DecisionShield identifies information that could materially change the decision.
+
+Each missing evidence item includes:
+
+- Severity
+- Why it matters
+- What should be verified
+- Potential impact on decision readiness
+
+---
+
+### 5. Decision Stress Testing
+
+Users can test scenarios such as:
+
+- Increased workload
+- Reduced budget
+- Changing requirements
+- Loss of team expertise
+- New compliance requirements
+
+The system evaluates how the decision's readiness changes under each scenario.
+
+---
+
+### 6. Decision Audit Report
+
+The final report provides a structured summary of the decision, including:
+
+- Readiness Score
+- Evidence
+- Assumptions
+- Risks
+- Unknowns
+- Missing Evidence
+- Stress Tests
+- Decision Stability
+- Recommended Next Actions
+
+---
+
+### 7. Decision History
+
+Users can review previous decisions, compare readiness scores and identify decisions that require further attention.
+
+---
+
+### 8. Decision Drift
+
+The architecture supports tracking whether the assumptions behind a previous decision remain valid as circumstances change.
+
+A decision that was initially considered ready can therefore be flagged when important conditions change.
+
+---
+
+# Innovation and Differentiation
+
+DecisionShield is not designed as another conversational AI assistant.
+
+Traditional AI assistants primarily answer:
+
+> **"What should I choose?"**
+
+DecisionShield instead asks:
+
+> **"What evidence supports this decision, what are we assuming, what are we missing, and would the decision remain valid if circumstances changed?"**
+
+The primary innovation is the concept of **Decision Readiness**.
+
+The platform separates:
+
+```text
+AI Reasoning
+      ↓
+Structured Evidence
+      ↓
+Deterministic Decision Analysis
+      ↓
+Decision Readiness
+      ↓
+Stress Testing
+      ↓
+Decision Audit
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                            TRADITIONAL AI ASSISTANT                         │
-│  User: "Should we pick Vendor A or Vendor B?"                               │
-│  AI: "Based on my analysis, pick Vendor A!" (Hallucinates confidence)       │
-└─────────────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                DECISIONSHIELD                               │
-│  User: "We plan to choose Vendor A based on our team's evaluation."         │
-│  DecisionShield: "Audit Result: NOT READY (Readiness Score: 42%)           │
-│  - Missing Evidence: Vendor SLA under peak load is unverified.              │
-│  - Load Assumption: 3 unsupported claims detected regarding pricing.        │
-│  - High Risk: Data residency compliance is marked as Unknown."              │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+This creates a repeatable and auditable decision workflow rather than a single AI-generated response.
 
-### What DecisionShield Analyzes:
-- **Facts**: Verifiable data points and confirmed parameters.
-- **Assumptions**: Unverified beliefs treated as ground truth.
-- **Claims**: Vendor or internal promises lacking supporting evidence.
-- **Unknown Information**: Critical variables that are unaccounted for.
-- **Requirements & Constraints**: Technical, financial, and operational boundaries.
-- **Missing Evidence**: Information that could materially alter the decision.
-- **Decision Stability**: How sensitive the decision is to changing external conditions.
+### Key differentiation
 
-The final artifact is a comprehensive **Decision Audit Report** containing a deterministic **Decision Readiness Score**, risk breakdown, and actionable verification steps.
+| Traditional AI Assistant | DecisionShield |
+|---|---|
+| Provides an answer | Audits a decision |
+| Primarily conversational | Structured workflow |
+| Recommendation-focused | Evidence-focused |
+| Free-form response | Structured decision model |
+| LLM-generated confidence | Deterministic readiness score |
+| Limited evidence tracking | Fact/assumption/unknown classification |
+| Static answer | Stress testing |
+| One-time interaction | Decision history and potential drift detection |
+
+DecisionShield does not claim that general-purpose LLMs cannot perform individual analysis tasks.
+
+Instead, it packages AI reasoning into a **domain-independent decision assurance workflow**.
 
 ---
 
-## 2. Problem Statement
+# Technical Implementation
 
-Modern leaders, engineers, and strategists increasingly rely on LLMs for critical decisions:
-* **Technology & Architecture Selection** (e.g., database migrations, framework adoption)
-* **Cloud & Infrastructure Platforms** (e.g., multi-cloud vs. single provider)
-* **Vendor & Product Selection** (e.g., enterprise software procurement)
-* **Business Strategy & Hiring** (e.g., expansion, team structuring)
-
-### The Hidden Trap: "Confident Hallucination of Readiness"
-Conventional LLM chatbots are optimized to answer questions persuasively. When given an incomplete problem statement, a standard AI assistant will frequently generate a recommendation without flagging that crucial information is missing.
-
-#### Real-World Example:
-A startup asks an AI assistant: *"Should we migrate from PostgreSQL to MongoDB?"*
-* **Standard AI Response**: *"MongoDB offers flexible schema-less design and horizontal scalability, making it ideal for fast-growing startups..."*
-* **The Reality**: The startup may suffer a catastrophic outage because no one verified whether their transactions require strict ACID guarantees, or what their read/write query distribution is.
-
-#### How DecisionShield Reframes the Problem:
-DecisionShield audits the decision foundation before any commitment is made:
-
-| Element | Extracted Information | Status |
-| :--- | :--- | :--- |
-| **FACT** | Current database is PostgreSQL. Data size is 2 TB. | Verified |
-| **ASSUMPTION** | MongoDB will automatically solve scalability bottlenecks. | **High Risk** |
-| **UNKNOWN** | Query workload patterns (Read/Write ratio). | **Critical Gap** |
-| **UNKNOWN** | Multi-document transaction frequency. | **Critical Gap** |
-| **MISSING EVIDENCE**| Benchmark results under peak synthetic workloads. | **Required** |
-| **RISK** | Relational data integrity models may break under MongoDB document structure. | **Warning** |
-
-### The Paradigm Shift:
-
-$$\text{Question} \longrightarrow \text{AI Recommendation} \quad \text{(High Risk Paradigm)}$$
-
-$$\Downarrow$$
-
-$$\text{Decision} \longrightarrow \text{Evidence Audit} \longrightarrow \text{Missing Info} \longrightarrow \text{Risk Analysis} \longrightarrow \text{Stress Test} \longrightarrow \text{Readiness Score} \longrightarrow \text{Human Decision}$$
-
----
-
-## 3. Core Solution
-
-DecisionShield executes an automated 11-stage decision auditing pipeline:
+## Architecture
 
 ```mermaid
 flowchart TD
-    A[User Decision Input] --> B[Decision Understanding Engine]
-    B --> C[Semantic Evidence Extraction]
-    C --> D[Classification Engine: Facts / Assumptions / Claims / Unknowns]
-    D --> E[Requirement & Constraint Mapping]
-    E --> F[Risk & Vulnerability Detection]
-    F --> G[Missing Evidence Identification]
-    G --> H[Deterministic Decision Readiness Calculation]
-    H --> I[Stress Test Scenario Generator]
-    I --> J[Decision Stability Index Analysis]
-    J --> K[Final Decision Audit Report]
-```
 
-1. **User Decision Input**: User provides the proposed decision, candidate options, rationale, and supporting evidence.
-2. **Decision Understanding**: Semantic analysis to parse context, goals, and domain.
-3. **Evidence Extraction**: Natural language parsing to isolate individual evidence items.
-4. **Item Classification**: Segregating inputs into *Facts*, *Assumptions*, *Claims*, and *Unknowns*.
-5. **Requirement Analysis**: Validating how well stated options cover explicitly defined constraints.
-6. **Risk Detection**: Flagging operational, technical, financial, and compliance risks.
-7. **Missing Evidence Detection**: Identifying blind spots that could invalidate the decision.
-8. **Deterministic Scoring**: Calculating an objective **Decision Readiness Score** (0-100%).
-9. **Stress Testing**: Simulating external shocks (e.g., budget cut, traffic spike, team departure).
-10. **Stability Analysis**: Measuring if the optimal choice flips under stress conditions.
-11. **Decision Audit Report**: Rendering interactive visual dashboards and downloadable audit summaries.
+    A[User] --> B[React Frontend]
+
+    B --> C[Decision Workspace]
+
+    C --> D[FastAPI Backend]
+
+    D --> E[Decision Structuring]
+
+    E --> F[Gemma 4 E4B]
+
+    F --> G[Structured AI Analysis]
+
+    G --> H[Evidence Analysis]
+
+    H --> H1[Facts]
+    H --> H2[Assumptions]
+    H --> H3[Claims]
+    H --> H4[Unknowns]
+    H --> H5[Risks]
+
+    G --> I[Missing Evidence Detection]
+
+    G --> J[Stress Scenario Generation]
+
+    H --> K[Deterministic Decision Engine]
+
+    I --> K
+    J --> K
+
+    K --> L[Decision Readiness Score]
+
+    L --> M[Decision Stability Analysis]
+
+    M --> N[Decision Audit Report]
+
+    N --> B
+```
 
 ---
 
-## 4. Key Features
+# Technology Stack
 
-### 📁 Decision Workspace
-- Input decision parameters, candidate options, organizational context, and known constraints.
-- Attach raw text notes, requirement documents, and meeting summaries.
-
-### 🧠 AI Evidence Parsing (Gemma 4)
-- Automated extraction of facts, unverified assumptions, marketing claims, and missing details.
-- Real-time semantic contradiction detection between stated requirements and proposed options.
-
-### 📊 Deterministic Decision Readiness Score
-- A non-hallucinated score computed by a pure Python mathematical backend.
-- Evaluates 7 core metrics:
-  1. *Evidence Quality*
-  2. *Requirement Coverage*
-  3. *Risk Coverage*
-  4. *Assumption Load Penalty*
-  5. *Unknown Information Penalty*
-  6. *Evidence Completeness*
-  7. *Decision Stability Index*
-
-### 🔍 Missing Evidence Detection
-- Pinpoints high-impact missing data required to safely finalize the decision (e.g., workload profiles, security compliance, latency benchmarks).
-
-### ⚡ Decision Stress Testing
-- Generates "what-if" edge case scenarios (e.g., "What if traffic increases 5x?", "What if team budget is cut 30%?").
-- Tests whether the chosen option remains resilient under pressure.
-
-### 📄 Comprehensive Audit Report
-- Visual decision readiness gauge (`READY`, `CAUTION`, `NOT READY`).
-- Prioritized checklist of verification actions required to bridge readiness gaps.
+| Category | Technologies |
+|---|---|
+| Frontend | React, Vite, Tailwind CSS, React Router, Framer Motion, Recharts |
+| Backend | Python, FastAPI |
+| Database | N/A for MVP / Local application state |
+| AI / ML | Gemma 4 E4B, structured prompting |
+| AI Runtime | Local inference / compatible Gemma inference runtime |
+| Infrastructure | Local development / hackathon deployment |
+| APIs / Services | FastAPI REST API |
+| Visualization | Recharts |
+| Icons | Lucide React |
 
 ---
 
-## 5. Why This Is Not Just a Chatbot
+# How It Works
 
-DecisionShield is built from the ground up to solve the architectural flaws of traditional conversational AI:
+## 1. Decision Intake
 
-```mermaid
-graph TD
-    subgraph Traditional_AI_Assistant [Traditional AI Assistant]
-        A1[User Question] --> B1[LLM Generation]
-        B1 --> C1[Text Recommendation / Decision]
-    end
+The user enters:
 
-    subgraph DecisionShield_Platform [DecisionShield Platform]
-        A2[User Proposed Decision] --> B2[Gemma 4 Semantic Extraction]
-        B2 --> C2[Structured Classification Engine]
-        C2 --> D2[Deterministic Readiness Engine]
-        C2 --> E2[Scenario Stress Tester]
-        D2 --> F2[Mathematical Readiness Score]
-        E2 --> G2[Stability Analysis]
-        F2 --> H2[Decision Audit Report & Action Plan]
-        G2 --> H2
-    end
+```text
+Decision
+Options
+Context
+Requirements
+Constraints
+Evidence
 ```
 
-> **Key Takeaway:** The goal of DecisionShield is not to replace human judgment with AI recommendations. The goal is to audit and improve the **quality, completeness, and resilience of information** available to human decision makers.
+The frontend sends this structured information to the backend.
 
 ---
 
-## 6. Gemma 4 Integration
+## 2. AI Reasoning
 
-### Why Gemma 4?
-DecisionShield leverages **Google's Gemma 4** open-weights model family (target model: `gemma4:e4b` / `gemma4:e2b` via **Ollama**) as its semantic reasoning backend. Gemma 4 provides state-of-the-art structured JSON generation, long-context reasoning, and fast local execution.
+Gemma 4 analyzes the decision context.
 
-```
-                      +---------------------------------------+
-                      |         USER DECISION INPUT           |
-                      +---------------------------------------+
-                                          |
-                                          v
-                      +---------------------------------------+
-                      |           GEMMA 4 REASONING           |
-                      |     (Local Ollama Inference Engine)   |
-                      |                                       |
-                      |  - Unstructured Context Parsing       |
-                      |  - Fact & Assumption Extraction       |
-                      |  - Risk & Blind Spot Identification   |
-                      |  - Stress Scenario Generation         |
-                      +---------------------------------------+
-                                          |
-                                          | Strict JSON Output Schema
-                                          v
-                      +---------------------------------------+
-                      |     DETERMINISTIC BACKEND ENGINE      |
-                      |                                       |
-                      |  - Mathematical Readiness Formula     |
-                      |  - Penalty Calculation                |
-                      |  - Audit Score Generation             |
-                      +---------------------------------------+
-```
-
-### JSON Schema Contract
-Gemma 4 strictly outputs standardized structured JSON payload to guarantee reliability:
+Instead of returning an unrestricted conversational answer, the model is instructed to return structured information such as:
 
 ```json
 {
-  "facts": [
-    {"id": "f1", "statement": "Current database is PostgreSQL with 2TB storage.", "confidence": 0.95}
-  ],
-  "assumptions": [
-    {"id": "a1", "statement": "MongoDB will reduce query latency automatically.", "risk_level": "HIGH"}
-  ],
-  "claims": [
-    {"id": "c1", "statement": "Vendor guarantees 99.999% uptime.", "verified": false}
-  ],
-  "unknowns": [
-    {"id": "u1", "statement": "Peak write IOPS under holiday traffic.", "criticality": "HIGH"}
-  ],
-  "risks": [
-    {"id": "r1", "category": "Technical", "description": "Loss of ACID transactions across related documents.", "severity": "CRITICAL"}
-  ],
-  "missing_evidence": [
-    {"id": "m1", "description": "Benchmark comparison of complex multi-join queries under MongoDB."}
-  ],
-  "stress_scenarios": [
-    {"scenario": "Data volume grows from 2TB to 10TB in 6 months.", "impact": "HIGH"}
-  ]
+  "facts": [],
+  "assumptions": [],
+  "claims": [],
+  "unknowns": [],
+  "risks": [],
+  "missing_evidence": [],
+  "stress_scenarios": []
 }
 ```
 
-### Hardware Optimization Target
-- **Recommended Model**: `gemma4:e4b` (Effective 4B parameters) or `gemma4:e2b` (Effective 2B parameters) with 4-bit quantization.
-- **Minimum Requirements**: 16 GB RAM, 6 GB VRAM (runs entirely on local consumer hardware).
+This makes the AI output usable by downstream application logic.
 
 ---
 
-## 7. System Architecture
+## 3. Evidence Classification
 
-DecisionShield follows a decoupled client-server architecture separating semantic reasoning, deterministic scoring, and visualization:
+The system separates information into categories.
 
-```mermaid
-graph TB
-    subgraph Frontend_Layer [Frontend Layer - React + Vite / Next.js]
-        UI[User Interface / Workspace]
-        Dash[Decision Dashboard]
-        Explorer[Evidence Explorer]
-        StressUI[Stress Test Visualizer]
-        ReportUI[Audit Report Viewer]
-    end
+### FACT
 
-    subgraph API_Layer [API Layer - FastAPI Backend]
-        Router[FastAPI Route Handlers]
-        SchemaVal[Pydantic Schema Validator]
-    end
+Information explicitly supported by the provided context.
 
-    subgraph AI_Reasoning_Layer [AI Reasoning Layer - Local LLM]
-        OllamaBridge[Ollama API Client]
-        GemmaEngine[Google Gemma 4 Model]
-    end
+### ASSUMPTION
 
-    subgraph Decision_Engine [Deterministic Decision Engine]
-        ScoreCalc[Readiness Score Calculator]
-        PenaltyEngine[Assumption & Unknown Penalty Engine]
-        StabilityCalc[Decision Stability Analyzer]
-    end
+A belief or inference that has not been sufficiently verified.
 
-    UI --> Router
-    Dash --> Router
-    Router --> SchemaVal
-    SchemaVal --> OllamaBridge
-    OllamaBridge --> GemmaEngine
-    GemmaEngine -->|Structured JSON| SchemaVal
-    SchemaVal --> ScoreCalc
-    SchemaVal --> PenaltyEngine
-    ScoreCalc --> StabilityCalc
-    StabilityCalc --> Router
-    Router --> ReportUI
+### CLAIM
+
+A statement requiring additional evidence.
+
+### UNKNOWN
+
+Information that is currently unavailable.
+
+### RISK
+
+A potential condition that could negatively affect the decision.
+
+---
+
+## 4. Deterministic Decision Engine
+
+The AI does not directly determine the final numerical score.
+
+Instead, the backend calculates the Decision Readiness Score using measurable factors such as:
+
+```text
+Evidence Quality
+Requirement Coverage
+Risk Coverage
+Unknown Information
+Assumption Load
+Decision Stability
 ```
 
+This separation reduces dependence on arbitrary LLM-generated numerical confidence.
+
 ---
 
-## 8. Data Flow
+## 5. Missing Evidence
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User
-    participant Frontend as React UI
-    participant Backend as FastAPI Server
-    participant AI as Gemma 4 (Ollama)
-    participant Engine as Scoring Engine
+The system identifies unknown information that could materially change the decision.
 
-    User->>Frontend: Submit Decision Context & Options
-    Frontend->>Backend: POST /api/v1/audit/analyze
-    Backend->>Backend: Validate payload schema (Pydantic)
-    Backend->>AI: Send prompt with structured JSON output contract
-    AI-->>Backend: Return JSON (Facts, Assumptions, Risks, Unknowns)
-    Backend->>Backend: Validate AI JSON response
-    Backend->>Engine: Pass parsed evidence payload
-    Engine->>Engine: Calculate Readiness Score & Penalties
-    Engine->>Engine: Run Stress Scenario Stability Index
-    Engine-->>Backend: Return deterministic audit metrics
-    Backend-->>Frontend: HTTP 200 OK (Full Decision Audit Data)
-    Frontend->>User: Render Decision Audit Dashboard
+Each item receives a priority such as:
+
+```text
+Critical
+High
+Medium
+Low
 ```
 
+The system then generates a verification action for each important gap.
+
 ---
 
-## 9. Component Architecture
+## 6. Stress Testing
 
-### Frontend Layout (`frontend/`)
-```
-frontend/
-├── src/
-│   ├── components/
-│   │   ├── Workspace/          # Input forms for decision context
-│   │   ├── Dashboard/          # Score gauges and status indicators
-│   │   ├── EvidenceExplorer/   # Fact, assumption, and claim lists
-│   │   ├── StressTest/         # Interactive scenario simulator
-│   │   └── AuditReport/        # Printable and downloadable report views
-│   ├── hooks/                  # Custom React hooks (useAudit, useOllama)
-│   ├── services/               # API clients for FastAPI backend
-│   ├── types/                  # TypeScript interfaces for audit schemas
-│   └── App.tsx                 # Core application entry
-├── package.json
-└── vite.config.ts
+The platform generates hypothetical changes to the decision environment.
+
+Examples:
+
+```text
+10× workload
+50% budget reduction
+New compliance requirement
+Reduced team expertise
+Increased operational complexity
 ```
 
-### Backend Layout (`backend/`)
-```
-backend/
-├── app/
-│   ├── api/
-│   │   └── routes.py           # FastAPI endpoints
-│   ├── core/
-│   │   ├── config.py           # Environment variables & constants
-│   │   └── scoring.py          # Pure Python deterministic scoring formula
-│   ├── models/
-│   │   └── schemas.py          # Pydantic data models & JSON specs
-│   ├── services/
-│   │   ├── gemma_service.py    # Gemma 4 Ollama integration service
-│   │   └── stress_service.py   # Stress testing simulation engine
-│   └── main.py                 # FastAPI application entrypoint
-├── requirements.txt
-└── .env.example
-```
+The decision is evaluated again under these conditions.
+
+This allows users to understand whether their decision is robust or highly sensitive to changing assumptions.
 
 ---
 
-## 10. API Architecture
+## 7. Decision Audit
 
-The FastAPI backend exposes RESTful endpoints for evidence auditing and readiness evaluation:
+The final analysis is presented as an auditable report.
 
-| Endpoint | Method | Purpose | AI Involved | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| `/api/v1/health` | `GET` | Health check & Ollama/Gemma connectivity check | No | Implemented |
-| `/api/v1/audit/analyze` | `POST` | Full decision audit pipeline execution | **Yes (Gemma 4)** | Implemented |
-| `/api/v1/audit/evidence` | `POST` | Extracts and classifies facts/assumptions | **Yes (Gemma 4)** | Implemented |
-| `/api/v1/audit/score` | `POST` | Calculates readiness score deterministically | No | Implemented |
-| `/api/v1/audit/stress-test`| `POST` | Generates edge-case stress scenarios | **Yes (Gemma 4)** | Implemented |
-| `/api/v1/audit/export` | `POST` | Generates PDF / Markdown audit report | No | Planned |
+Instead of:
 
----
+> "MongoDB is better."
 
-## 11. Decision Readiness Engine
+The system may produce:
 
-The **Decision Readiness Score** ($DRS$) is computed using a deterministic algorithm to ensure full reproducibility and eliminate LLM scoring hallucination.
+> **Decision Readiness: 58/100 — NOT READY**
 
-### Mathematical Formulation
+with the explanation:
 
-$$DRS = \max\left(0, \min\left(100, S_{\text{base}} - P_{\text{assumption}} - P_{\text{unknown}} - P_{\text{risk}} + B_{\text{evidence}}\right)\right)$$
-
-Where:
-* **Base Score ($S_{\text{base}}$)**: Baseline score determined by requirement coverage ratio:
-  $$S_{\text{base}} = \left( \frac{N_{\text{covered requirements}}}{N_{\text{total requirements}}} \right) \times 60$$
-
-* **Assumption Load Penalty ($P_{\text{assumption}}$)**:
-  $$P_{\text{assumption}} = (N_{\text{high risk assumptions}} \times 10) + (N_{\text{medium risk assumptions}} \times 5)$$
-
-* **Unknown Information Penalty ($P_{\text{unknown}}$)**:
-  $$P_{\text{unknown}} = (N_{\text{critical unknowns}} \times 12) + (N_{\text{standard unknowns}} \times 6)$$
-
-* **Unmitigated Risk Penalty ($P_{\text{risk}}$)**:
-  $$P_{\text{risk}} = (N_{\text{critical risks}} \times 15) + (N_{\text{high risks}} \times 8)$$
-
-* **Evidence Bonus ($B_{\text{evidence}}$)**:
-  $$B_{\text{evidence}} = \min\left(20, N_{\text{verified facts}} \times 4\right)$$
-
-### Decision Status Thresholds
-
-```mermaid
-stateDiagram-v2
-    [*] --> Evaluating
-    Evaluating --> READY: Score >= 80% & Critical Unknowns = 0
-    Evaluating --> CAUTION: Score 50% - 79%
-    Evaluating --> NOT_READY: Score < 50% or Critical Risks > 2
+```text
+Critical unresolved evidence:
+1. Query workload
+2. Transaction requirements
+3. Migration downtime tolerance
 ```
 
-| Status | Readiness Score | Action Required |
-| :--- | :--- | :--- |
-| 🟢 **READY** | $\ge 80\%$ | Decision is well-supported by evidence. Proceed with execution. |
-| 🟡 **CAUTION** | $50\% - 79\%$ | Moderate evidence gaps. Address key assumptions before committing. |
-| 🔴 **NOT READY** | $< 50\%$ | High risk / major blind spots. **Do not proceed** until missing evidence is verified. |
+The user therefore understands what must be verified before committing.
 
 ---
 
-## 12. Security and Reliability
+# Technical Decisions
 
-* **Deterministic Guardrails**: LLMs extract semantics; pure Python code calculates numbers.
-* **Input Validation**: Strict typing via `Pydantic` and `TypeScript`.
-* **JSON Schema Enforcement**: Strict JSON validation rejects malformed LLM outputs and triggers automatic re-prompts.
-* **Local Data Privacy**: All LLM processing runs locally through Ollama—no sensitive business decisions are transmitted to 3rd-party clouds.
-* **Disclaimer**: DecisionShield provides decision-support analytics and does not replace qualified human professional judgment.
+### LLM + Deterministic Engine
 
----
+Gemma 4 is used for qualitative reasoning and unstructured information analysis.
 
-## 13. Demo Scenario
+The numerical Decision Readiness Score is calculated by deterministic backend logic.
 
-### Scenario: *"Should our startup migrate from PostgreSQL to MongoDB?"*
-
-#### User Context Input:
-> *"We are experiencing query slowdowns on our startup's primary web application. Our dataset is around 2TB stored in PostgreSQL. We are considering migrating to MongoDB because document stores scale better horizontally."*
-
-#### DecisionShield Output Summary:
-
-```
-================================================================================
-                        DECISIONSHIELD AUDIT REPORT                             
-================================================================================
-DECISION TITLE: PostgreSQL to MongoDB Migration Evaluation
-STATUS: 🔴 NOT READY
-DECISION READINESS SCORE: 38%
-
---------------------------------------------------------------------------------
-CLASSIFIED EVIDENCE:
---------------------------------------------------------------------------------
-[FACT]           Current DB is PostgreSQL with 2TB storage volume. (Verified)
-[ASSUMPTION]     MongoDB will automatically fix query latency. (High Risk)
-[CLAIM]          Document databases scale better for all startup workloads. (Unverified)
-[UNKNOWN]        Current Read/Write query ratio and index utilization. (Critical Gap)
-[UNKNOWN]        Cross-collection ACID transaction requirements. (Critical Gap)
-
---------------------------------------------------------------------------------
-CRITICAL MISSING EVIDENCE:
---------------------------------------------------------------------------------
-1. Profiling report identifying exact query bottlenecks in PostgreSQL.
-2. Estimated migration downtime and data conversion cost analysis.
-
---------------------------------------------------------------------------------
-STRESS TEST RESULTS:
---------------------------------------------------------------------------------
-Scenario: "Workload requires multi-table ACID transactions under high concurrency."
-Impact: CRITICAL (MongoDB document model may require major application refactoring).
-
---------------------------------------------------------------------------------
-RECOMMENDED ACTION PLAN:
---------------------------------------------------------------------------------
-[ ] Perform query index profiling on existing PostgreSQL instance.
-[ ] Measure current IOPS and latency metrics before changing database architecture.
-================================================================================
-```
+This separation provides greater consistency and makes the scoring process explainable.
 
 ---
 
-## 14. Project Differentiation
+### Structured AI Output
 
-| Dimension | Traditional Decision Matrix | Standard AI Chatbot | DecisionShield |
-| :--- | :--- | :--- | :--- |
-| **Approach** | Manual scoring grid | Conversational answer | Automated Evidence Audit |
-| **Assumption Handling**| Ignored / Implicit | Accepts blindly | Explicitly flags & penalizes |
-| **Blind Spot Detection**| Manual effort | Rare / Hallucinates | Automated Missing Evidence detection |
-| **Scoring Mechanism** | Manual weight assignment| LLM-generated text | Deterministic mathematical engine |
-| **Stress Testing** | Static | Ad-hoc text prompt | Automated edge-case simulations |
+The AI is instructed to produce structured JSON rather than unrestricted text.
+
+This makes the model output easier to validate and integrate with the application.
 
 ---
 
-## 15. Open Source & Licensing
+### Model-Agnostic Architecture
 
-* **Open Source Philosophy**: DecisionShield is committed to privacy-first, local-first AI tools for transparent decision auditing.
-* **License**: To be added.
+The AI service is isolated from the rest of the application.
+
+Although Gemma 4 is used for this implementation, the architecture allows another compatible model to be introduced later without redesigning the frontend or decision engine.
 
 ---
 
-## 16. Setup Instructions
+### No Database for the MVP
 
-### Prerequisites
-* **Python**: 3.10 or higher
-* **Node.js**: v18.0 or higher
-* **Ollama CLI**: Installed and running locally ([https://ollama.com](https://ollama.com))
+The hackathon MVP prioritizes the core decision-analysis workflow.
 
-### 1. Model Setup (Gemma 4)
-Ensure Ollama is running, then pull the target Gemma 4 model:
+Persistent database infrastructure is intentionally minimized to reduce development complexity and keep the focus on the AI system.
+
+---
+
+# Implementation During the Hackathon
+
+During the Hack Day, the team implemented a functional DecisionShield MVP covering the complete decision-analysis workflow.
+
+The major components include:
+
+- Decision Workspace
+- Decision Dashboard
+- Evidence Explorer
+- Missing Evidence Analysis
+- Decision Readiness Score
+- Risk Analysis
+- Stress Testing
+- Decision Stability Visualization
+- Final Decision Audit Report
+- Decision History
+- Authentication flow
+- Responsive dashboard interface
+- Gemma-powered reasoning layer
+- Deterministic decision scoring engine
+
+The MVP was designed around a representative technology decision:
+
+> **Should a startup migrate from PostgreSQL to MongoDB?**
+
+This scenario demonstrates how the platform identifies assumptions, unknowns and risks instead of simply producing a recommendation.
+
+---
+
+# Team Contributions
+
+**[Member Name]:** System architecture, backend development, Gemma integration and decision engine.
+
+**[Member Name]:** Frontend development, dashboard UI, responsive design and user experience.
+
+**[Member Name]:** AI prompting, evidence analysis, stress-testing logic and evaluation.
+
+**[Member Name]:** Testing, documentation, deployment, presentation and demo preparation.
+
+---
+
+# Working Application
+
+**Live Application:** [Live URL]
+
+The deployed application provides the complete DecisionShield workflow.
+
+Users can:
+
+1. Create or load a decision.
+2. Submit it for analysis.
+3. Review the Decision Readiness Score.
+4. Explore facts, assumptions and risks.
+5. Review missing evidence.
+6. Verify evidence items.
+7. Run decision stress tests.
+8. Review decision stability.
+9. Generate the final Decision Audit Report.
+
+---
+
+# Demo Video
+
+**Demo Video:** [Video URL]
+
+The demonstration should cover:
+
+1. Landing page
+2. Creating a decision
+3. Decision analysis
+4. Evidence classification
+5. Decision Readiness Score
+6. Missing evidence
+7. Stress testing
+8. Final Decision Audit Report
+
+---
+
+# Open Source and AI Usage
+
+## AI / Models
+
+### Gemma 4 E4B
+
+**Usage:**
+
+Gemma 4 is used as the reasoning engine of DecisionShield.
+
+It analyzes unstructured decision context and identifies:
+
+- Facts
+- Assumptions
+- Claims
+- Unknowns
+- Risks
+- Missing evidence
+- Stress-test scenarios
+
+The application converts the model's output into structured data that is consumed by the decision-analysis engine.
+
+Gemma is not used to directly generate the final numerical Decision Readiness Score.
+
+---
+
+# Open Source Components
+
+### React
+
+Used to build the interactive frontend application.
+
+### Vite
+
+Used as the frontend build tool and development environment.
+
+### Tailwind CSS
+
+Used for responsive UI styling and the DecisionShield design system.
+
+### FastAPI
+
+Used to build the Python backend and REST API layer.
+
+### Recharts
+
+Used to visualize readiness scores, decision stability and stress-test results.
+
+### Framer Motion
+
+Used for interface animations and transitions.
+
+### Lucide React
+
+Used for application icons.
+
+All third-party components should retain their respective licenses and attribution requirements.
+
+---
+
+# Setup and Usage
+
+## Prerequisites
+
+- Node.js 20+
+- Python 3.10+
+- Git
+- Compatible Gemma 4 inference environment
+- Recommended hardware: 16 GB RAM and approximately 6 GB VRAM for the selected quantized Gemma configuration
+
+---
+
+# Installation
+
 ```bash
-# Pull Gemma 4 model
-ollama pull gemma4:e2b
-# or for higher accuracy:
-ollama pull gemma4:e4b
+git clone [repository-url]
+
+cd [project-directory]
 ```
 
-### 2. Backend Setup (FastAPI)
+## Frontend
+
 ```bash
-# Navigate to backend directory
-cd backend
-
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment (Windows)
-.\venv\Scripts\activate
-# Activate virtual environment (Linux/macOS)
-# source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start FastAPI development server
-uvicorn app.main:app --reload --port 8000
-```
-
-### 3. Frontend Setup (React)
-```bash
-# Navigate to frontend directory
 cd frontend
 
-# Install node dependencies
 npm install
 
-# Start Vite development server
 npm run dev
 ```
 
+## Backend
+
+```bash
+cd backend
+
+python -m venv venv
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the API:
+
+```bash
+uvicorn main:app --reload
+```
+
 ---
 
-## 17. Environment Variables
+# Environment Variables
 
-Reference standard environment variables in `.env`:
+Create a `.env` file if required:
 
 ```env
-# Backend Settings
-PORT=8000
-ENVIRONMENT=development
+GEMMA_MODEL_PATH=[path-to-local-gemma-model]
+FRONTEND_URL=http://localhost:5173
+API_URL=http://localhost:8000
+```
 
-# Gemma 4 / Ollama Configuration
-OLLAMA_BASE_URL=http://localhost:11434
-GEMMA_MODEL=gemma4:e2b
-MAX_TOKENS=2048
-TEMPERATURE=0.2
+Do not commit secrets or private credentials to the repository.
 
-# CORS Configuration
-ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3000
+---
+
+# Running the Project
+
+Start the backend:
+
+```bash
+uvicorn main:app --reload
+```
+
+Start the frontend:
+
+```bash
+npm run dev
+```
+
+Open the frontend at:
+
+```text
+http://localhost:5173
 ```
 
 ---
 
-## 18. Project Structure
+# Usage
 
+### Step 1
+
+Open DecisionShield.
+
+### Step 2
+
+Create a new decision.
+
+For example:
+
+> Should our startup migrate from PostgreSQL to MongoDB?
+
+### Step 3
+
+Add:
+
+- Options
+- Requirements
+- Constraints
+- Context
+- Existing evidence
+
+### Step 4
+
+Run the Decision Audit.
+
+### Step 5
+
+Review:
+
+- Facts
+- Assumptions
+- Unknowns
+- Risks
+- Missing Evidence
+
+### Step 6
+
+Review the Decision Readiness Score.
+
+### Step 7
+
+Run Stress Tests.
+
+### Step 8
+
+Review Decision Stability.
+
+### Step 9
+
+Generate the Final Decision Audit.
+
+---
+
+# Challenges and Learnings
+
+## Challenge 1 — Making AI reasoning structured
+
+General-purpose LLMs naturally produce free-form responses.
+
+We needed structured information that could be consumed reliably by application logic.
+
+**Learning:**
+
+Structured prompting and validation are critical when integrating LLMs into deterministic software systems.
+
+---
+
+## Challenge 2 — Avoiding arbitrary AI confidence scores
+
+Allowing an LLM to directly generate a numerical decision score can make the result difficult to reproduce or explain.
+
+**Solution:**
+
+Gemma performs qualitative reasoning while the backend calculates the numerical readiness score.
+
+---
+
+## Challenge 3 — Making the system more than a chatbot
+
+The goal was not to create another interface where users simply ask AI questions.
+
+**Solution:**
+
+We designed a complete workflow:
+
+```text
+Decision
+   ↓
+Evidence
+   ↓
+Assumptions
+   ↓
+Unknowns
+   ↓
+Risks
+   ↓
+Readiness
+   ↓
+Stress Test
+   ↓
+Audit
 ```
-DecisionShield/
-├── backend/
-│   ├── app/
-│   │   ├── api/
-│   │   │   └── routes.py
-│   │   ├── core/
-│   │   │   ├── config.py
-│   │   │   └── scoring.py
-│   │   ├── models/
-│   │   │   └── schemas.py
-│   │   ├── services/
-│   │   │   ├── gemma_service.py
-│   │   │   └── stress_service.py
-│   │   └── main.py
-│   ├── .env.example
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Workspace/
-│   │   │   ├── Dashboard/
-│   │   │   ├── EvidenceExplorer/
-│   │   │   ├── StressTest/
-│   │   │   └── AuditReport/
-│   │   ├── hooks/
-│   │   ├── services/
-│   │   └── App.tsx
-│   ├── package.json
-│   └── vite.config.ts
-└── README.md
+
+---
+
+## Challenge 4 — Limited Hackathon Development Time
+
+The system was designed around a focused MVP rather than attempting to implement every possible decision-management feature.
+
+This allowed the team to prioritize the core AI workflow and demonstrate an end-to-end working product.
+
+---
+
+# Devpost Submission
+
+**Devpost Project:** [Devpost Project URL]
+
+The Devpost submission contains:
+
+- Project description
+- Problem statement
+- Solution
+- Architecture
+- Technical implementation
+- Team contributions
+- Working application
+- Demo video
+- AI usage
+- Open-source components
+- Setup instructions
+
+---
+
+# Credits and License
+
+## Credits
+
+DecisionShield uses open-source technologies and frameworks including:
+
+- React
+- Vite
+- Tailwind CSS
+- FastAPI
+- Recharts
+- Framer Motion
+- Lucide React
+
+The project also uses Google's Gemma 4 model as the AI reasoning component.
+
+All external technologies, models and libraries remain subject to their respective licenses and terms.
+
+---
+
+# License
+
+**Apache License 2.0**
+
+See:
+
+```text
+LICENSE
 ```
 
----
-
-## 19. Future Roadmap
-
-- [ ] **PDF & Document Ingestion** *(Planned)*: Ingest PDFs, PRDs, and architecture blueprints directly into the evidence pipeline.
-- [ ] **Collaborative Decision Rooms** *(Planned)*: Real-time multi-user auditing for leadership teams.
-- [ ] **Source Citation & Provenance Graph** *(Planned)*: Visual mapping of every decision requirement to its source document.
-- [ ] **Domain-Specific Audit Templates** *(Planned)*: Pre-built templates for Cloud Security, M&A, and Codebase Refactoring.
+for the complete license text.
 
 ---
 
-## 20. Limitations
+# Submission Checklist
 
-* **LLM Edge Cases**: Semantic classification relies on language comprehension; human review is recommended.
-* **Non-Exhaustive Blind Spots**: Missing evidence suggestions are based on provided context and may not capture unstated domain constraints.
-* **Deterministic Indicator**: The readiness score measures evidence completeness and stability, not absolute real-world success guarantees.
+- [x] Project title and description added
+- [x] Problem clearly explained
+- [x] Reason for choosing the problem explained
+- [x] Solution documented
+- [x] Key features documented
+- [x] Innovation and differentiation explained
+- [x] Architecture included
+- [x] Technical implementation documented
+- [x] AI architecture documented
+- [x] Gemma 4 usage documented
+- [x] Deterministic scoring engine documented
+- [x] Hackathon implementation documented
+- [x] Team contribution section added
+- [x] All team member names finalized
+- [ ] Working application link added
+- [x] Demo video added
+- [x] Repository URL added
+- [x] Environment variables verified
+- [x] Setup instructions tested
+- [x] Challenges and learnings finalized
+- [ ] Devpost project completed
+- [ ] Devpost URL added
+- [ ] Credits finalized
+- [ ] License added
+- [ ] Final end-to-end demo tested
 
 ---
 
-## 21. Hackathon & Innovation Value
+# Core Product Statement
 
-DecisionShield demonstrates novel innovation in local open-weights AI:
-1. **Local-First Privacy**: Runs 100% locally via **Gemma 4** on Ollama—zero data exposure.
-2. **Hybrid AI Architecture**: Combines LLM semantic understanding with non-hallucinating deterministic software logic.
-3. **Structured Audit vs. Chatbot**: Moves past simple chat interfaces to structured, actionable enterprise auditing.
+> **DecisionShield doesn't make the decision for you. It helps you determine whether you're ready to make it.**
 
----
-
-## 22. Screenshots
-
-### Decision Workspace
-<!-- Add screenshot here -->
-*Input decision options, requirements, and context.*
-
-### Decision Readiness Dashboard
-<!-- Add screenshot here -->
-*View non-hallucinated score gauges and decision status indicators.*
-
-### Evidence Explorer
-<!-- Add screenshot here -->
-*Inspect classified facts, assumptions, claims, and unknowns.*
-
-### Stress Test Simulator
-<!-- Add screenshot here -->
-*Simulate edge-case scenarios and evaluate decision stability.*
-
-### Decision Audit Report
-<!-- Add screenshot here -->
-*Generate and share detailed decision audit reports.*
+**Analyze. Challenge. Stress-test. Decide.**
